@@ -5,7 +5,10 @@ public class SumUsingThreads {
 	static class MyThread extends Thread{
 		@Override
 		public void run(){
-
+			int sum = 0;
+			for(int i = 1; i <= 1000000; i++){
+				sum += i;
+			}
 		}
 	}
 	public static void main(String[] args){
