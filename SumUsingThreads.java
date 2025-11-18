@@ -19,6 +19,9 @@ public class SumUsingThreads {
 		}
 	}
 	public static void main(String[] args){
+
+		long start = System.nanoTime();
+
 		threads = new MyThread[1000];
 		for(int i = 0; i < threads.length; i++){
 			threads[i] = new MyThread();
@@ -37,6 +40,10 @@ public class SumUsingThreads {
 		for(MyThread thread : threads){
 			sumT += thread.getSum();
 		}
-		System.out.println(sumT);
+
+		long end = System.nanoTime();
+
+		System.out.println("Sum: " + sumT);
+        System.out.println("Time (ns): " + (end - start));
 	}
 }
