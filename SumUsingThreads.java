@@ -3,18 +3,26 @@ public class SumUsingThreads {
 	private static MyThread[] threads;
 
 	static class MyThread extends Thread{
+		private long sum;
+
+		public long getSum(){
+			return sum;
+		}
+
 		@Override
 		public void run(){
-			int sum = 0;
+			long s = 0;
 			for(int i = 1; i <= 1000000; i++){
 				sum += i;
 			}
+			sum = s;
 		}
 	}
 	public static void main(String[] args){
 		threads = new MyThread[1000];
 		for(int i = 0; i < threads.length; i++){
 			threads[i] = new MyThread();
+			threads[i].start();
 		}
 	}
 }
