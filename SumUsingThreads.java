@@ -13,7 +13,7 @@ public class SumUsingThreads {
 		public void run(){
 			long s = 0;
 			for(int i = 1; i <= 1000000; i++){
-				sum += i;
+				s += i;
 			}
 			sum = s;
 		}
@@ -23,6 +23,14 @@ public class SumUsingThreads {
 		for(int i = 0; i < threads.length; i++){
 			threads[i] = new MyThread();
 			threads[i].start();
+		}
+
+		for(MyThread t : threads){
+			try {
+				t.join();
+			} catch (InterruptedException e){
+				e.printStackTrace();
+			}
 		}
 	}
 }
