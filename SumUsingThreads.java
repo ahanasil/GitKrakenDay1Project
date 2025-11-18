@@ -13,7 +13,7 @@ public class SumUsingThreads {
 		public void run(){
 			long s = 0;
 			for(int i = 1; i <= 1000000; i++){
-				s += i;
+				s++;
 			}
 			sum = s;
 		}
@@ -32,5 +32,11 @@ public class SumUsingThreads {
 				e.printStackTrace();
 			}
 		}
+
+		long sumT = 0;
+		for(MyThread thread : threads){
+			sumT += thread.getSum();
+		}
+		System.out.println(sumT);
 	}
 }
